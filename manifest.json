@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "Time/Space Complexity Checker",
+    "description": "This will check your code's space and time complexity by highlighting the code and pressing submit",
+    "version" : "1.0",
+    "browser_action": {
+        "default_popup": "popup.html" 
+    },
+    "background": {
+        "service_worker": "background.js"
+      }
+}
