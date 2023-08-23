@@ -8,5 +8,11 @@
     },
     "background": {
         "service_worker": "background.js"
-      }
+    },
+
+    "content_scripts": [
+        {
+          "matches": ["https://leetcode.com/problems/*/solutions/"],
+          "js": ["inject.js"]
+        }]
 }
