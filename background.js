@@ -2,7 +2,7 @@
 const apiKey = 'Your API Key';
 //this is listening for when popup.js sends a message to any listeners
 //request represents the data sent over, sender represents information about
-//the sender 
+//the sender, sendResponse is a function to send data back to messager
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   //if code and prompt not null, proceed
   if (request.code && request.prompt) {
