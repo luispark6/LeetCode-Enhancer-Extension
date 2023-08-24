@@ -13,7 +13,7 @@ window.addEventListener('load', function() {
         console.log('Problem name not found in URL.');
     }
     function findYoutubeID(problem) {
-        const apiKey = 'AIzaSyC22GFWR6balVvcOFszYZ9ce0GTGmgff14'; 
+        const apiKey = 'YOUR YOUTUBE API KEY'; 
         //use api key and problem name to search for resuts on youtube
         const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=Leetcode: ${problem}`;
         fetch(apiUrl)
