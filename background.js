@@ -4,6 +4,14 @@ const apiKey = 'Your API Key';
 //request represents the data sent over, sender represents information about
 //the sender, sendResponse is a function to send data back to messager
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  //if the question description was sent, then sace this description in a local storage
+  if (request.description){
+      chrome.storage.local.set({description: request.description });
+  }
+  //if the currentUrl was sent, save the current url in the local storage
+  if (request.currentUrl){
+    chrome.storage.local.set({ currentUrl: request.currentUrl });
+}
   //if code and prompt not null, proceed
   if (request.code && request.prompt) {
     const model = 'text-davinci-003'; // the engine used
@@ -28,6 +36,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     //process the parsed json data
     .then(data => {
       const space_time_Complexity = data.choices[0].text;
+      //send the response back to popup.js because we want to display in through popup file
       sendResponse({ space_time_Complexity });
     })
     .catch(error => {
